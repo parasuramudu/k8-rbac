@@ -36,6 +36,11 @@ data:
       - system:nodes
       rolearn: arn:aws:iam::259958482934:role/eksctl-cluster-1-nodegroup-ng-435-NodeInstanceRole-1JV66WZWOMMAU
       username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - roboshop-admin
+      userarn: arn:aws:iam::259958482934:user/parasuram
+      username: parasuram
 kind: ConfigMap
 metadata:
   creationTimestamp: "2023-08-01T06:10:21Z"
