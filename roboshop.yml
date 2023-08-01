@@ -20,10 +20,25 @@ metadata:
   namespace: roboshop
 subjects:
 - kind: User
-  name: sivakumar
+  name: parasuram
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   # "roleRef" specifies the binding to a Role / ClusterRole
   kind: Role #this must be Role or ClusterRole
   name: roboshop-admin # this must match the name of the Role or ClusterRole you wish to bind to
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::259958482934:role/eksctl-cluster-1-nodegroup-ng-435-NodeInstanceRole-1JV66WZWOMMAU
+      username: system:node:{{EC2PrivateDNSName}}
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-08-01T06:10:21Z"
+  name: aws-auth
+  namespace: kube-system
+  uid: 7a3fe947-0307-4f55-9ff1-7a40f3cd9eae
