@@ -42,10 +42,13 @@ data:
       username: parasuram
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2023-08-05T07:14:00Z"
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"mapRoles":"- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::259958482934:role/eksctl-new-cluster-nodegroup-ng-d-NodeInstanceRole-1XXVJTFWQ2E3C\n  username: system:node:{{EC2PrivateDNSName}}\n","mapUsers":"- groups:\n  - roboshop-admin\n  userarn: arn:aws:iam::259958482934:user/parasuram\n  username: parasuram\n"},"kind":"ConfigMap","metadata":{"annotations":{},"creationTimestamp":"2023-08-05T07:14:00Z","name":"aws-auth","namespace":"kube-system","uid":"af433b7d-0022-4e11-afa1-0c7149187027"}}
+  creationTimestamp: "2023-08-05T11:34:48Z"
   name: aws-auth
   namespace: kube-system
-  uid: af433b7d-0022-4e11-afa1-0c7149187027
+  uid: abbc0d6b-7c7f-4472-a4bd-1a23681b5625
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
